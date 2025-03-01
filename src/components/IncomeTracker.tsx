@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
 import { useTransactionContext } from "../context/TransactionContext";
-import axios from "axios";
 import { IncomeConstants } from "../constants";
 import { MdDelete, MdModeEdit } from "react-icons/md";
 import { ConfirmationDialog } from "../utils/ConfirmationDialogBox";
@@ -12,7 +11,6 @@ import {
   filteringData,
 } from "../utils/Formatting";
 import "./IncomeTracker.css";
-import { mockTransactions } from "../data/mockTransactionData";
 
 type IncomeData = {
   _id: string;
@@ -100,10 +98,6 @@ const IncomeTracker = () => {
     const handleTransactionUpdate = () => fetchTransactionData();
     window.addEventListener("Transactions Updated", handleTransactionUpdate);
   }, [selectedDate]);
-
-  useEffect(() => {
-    localStorage.setItem("transactions", JSON.stringify(mockTransactions));
-  }, []);
 
   const customStyles = {
     content: {

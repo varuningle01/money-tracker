@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   IncomeTracker,
   ExpenseTracker,
@@ -10,9 +10,14 @@ import ReactModal from "react-modal";
 import "react-day-picker/dist/style.css";
 import { HomeConstants } from "../constants";
 import { TransactionProvider } from "../context/TransactionContext";
+import { mockTransactions } from "../data/mockTransactionData";
 
 const HomePage = () => {
   const [ModalIsOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(mockTransactions));
+  }, []);
 
   const openModal = () => {
     setIsOpen(true);
