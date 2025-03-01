@@ -17,6 +17,7 @@ const HomePage = () => {
 
   useEffect(() => {
     localStorage.setItem("transactions", JSON.stringify(mockTransactions));
+    window.dispatchEvent(new CustomEvent("Transactions Updated"));
   }, []);
 
   const openModal = () => {
