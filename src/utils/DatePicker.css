@@ -1,0 +1,9 @@
+.daypicker{
+    position: fixed;
+    z-index: 1;
+    opacity: 1;
+    background-color: white;
+    top: 20%;
+    left: 37%;
+    box-shadow:1px 1px 3px 3px black ;
+}
